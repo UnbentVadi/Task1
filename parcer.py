@@ -14,10 +14,11 @@ def parser():
 		myStringSite = ''.join(text_site)
 	return myStringSite
 
-
-
-
-
+def write_file(string_text):
+	f = open("main.html", "w", encoding="utf-8")
+	#with open("main.html", "w", encoding="utf-8") as f:
+	f.write(u"<p>"+string_text+"</p>")
+	f.close() 
 
 def main():
 	string_text = parser()
