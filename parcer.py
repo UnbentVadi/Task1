@@ -16,8 +16,7 @@ def parser():
 
 def write_file(string_text):
 	file = open("main.html", "w", encoding="utf-8")
-	#with open("main.html", "w", encoding="utf-8") as f:
-	file.write("<meta charset=\"utf-8\"><p>"+str(string_text)+"</p>")
+	file.write("<p>"+ string_text +"</p>")
 	file.close() 
 
 def main():
