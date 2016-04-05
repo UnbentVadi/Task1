@@ -39,7 +39,6 @@ def formal():
                     f.write(text)
                     f.close()
 
-
 def main():
     create_text_file()
     preformat()
