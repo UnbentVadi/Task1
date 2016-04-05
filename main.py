@@ -23,21 +23,21 @@ def preformat():
 
 
 def formal():
-                    f = open('list.txt', 'r')
-                    text = f.read()
-                    f.close()
+    f = open('list.txt', 'r')
+    text = f.read()
+    f.close()
+    Lixt = ['\([^)]*\)', '  ', ' , ', 'почтомат ',
+            'Parcel Shop ', 'Мини-отделение, ',
+            'Почтоматы в отделения Приватбанка',
+            'ТОЧКА ВЫДАЧИ "ПРИВАТ БАНКА"''', '  ']
 
-                    Lixt = ['\([^)]*\)', '  ', ' , ', 'почтомат ',
-                               'Parcel Shop ', 'Мини-отделение, ',
-                               'Почтоматы в отделения Приватбанка',
-                               'ТОЧКА ВЫДАЧИ "ПРИВАТ БАНКА"''','  ']
+    for s in range(len(Lixt)):
+        text = re.sub(Lixt[s], ' ', text)
 
-                    for s in range(len(Lixt)):
-                        text = re.sub(Lixt[s], ' ', text)
+    f = open('list.txt', 'w')
+    f.write(text)
+    f.close()
 
-                    f = open('list.txt', 'w')
-                    f.write(text)
-                    f.close()
 
 def main():
     create_text_file()
