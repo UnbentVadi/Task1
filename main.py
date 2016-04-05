@@ -13,7 +13,7 @@ def create_text_file():
 
 def preformat():
         with open('list.txt', 'w') as f_out:
-            with open('old_list.txt') as f_in:
+            with open('old_list.txt', 'r') as f_in:
                 for line in f_in:
                     line = line.replace(":", " ")
                     new_str = ''.join(line.split('№')[1:])
@@ -23,22 +23,21 @@ def preformat():
 
 
 def formal():
-                    f = open('list.txt')
+                    f = open('list.txt', 'r')
                     text = f.read()
                     f.close()
-                    clean = re.sub(r'\([^)]*\)', '', text)
-                    reclean = re.sub(' +', ' ', clean)
-                    may = re.sub(' , ', '', reclean)
-                    kish = re.sub('почтомат ', ' ', may)
-                    parcel = re.sub('Parcel Shop ', ' ', kish)
-                    number = re.sub('97', '97 ', parcel)
-                    date = re.sub('349', '349 ', number)
-                    last = re.sub \
-                    ('Почтоматы в отделения Приватбанка', '', date)
-                    f = open('list.txt', 'w')
-                    f.write(last)
-                    f.close()
 
+                    Lixt = ['\([^)]*\)', '  ', ' , ', 'почтомат ',
+                               'Parcel Shop ', 'Мини-отделение, ',
+                               'Почтоматы в отделения Приватбанка',
+                               'ТОЧКА ВЫДАЧИ "ПРИВАТ БАНКА"''','  ']
+
+                    for s in range(len(Lixt)):
+                        text = re.sub(Lixt[s], ' ', text)
+
+                    f = open('list.txt', 'w')
+                    f.write(text)
+                    f.close()
 
 
 def main():
